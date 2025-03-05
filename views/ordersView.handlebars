@@ -1,0 +1,30 @@
+{{#if id}}
+    <h1>User {{id}}'s' Orders</h1>
+{{else}}
+    <h1>{{user.name}}'s Orders</h1>
+{{/if}}
+
+<ul>
+    {{#each orders}}
+        <li key={{this._id}}>
+            <b>Order# {{this._id}}</b> 
+            <ul>
+                {{#each this.products}} 
+                    <li key={{this._id}}>
+                        {{this.product.name}} - quantity: {{this.qty}}
+                    </li>
+                {{/each}}
+            </ul>
+            {{#if ../isAdmin}}
+                <form method="POST" action="/editOrder">
+                <input type="text" id="id" name="id" value="{{this._id}}" hidden>
+                    <button>Edit Order</button>
+                </form>
+                <form method="POST" action="/deleteOrder/{{this._id}}">
+                    <button>Delete Order</button>
+                </form>
+            {{/if}}
+        </li>
+
+    {{/each}}
+</ul>

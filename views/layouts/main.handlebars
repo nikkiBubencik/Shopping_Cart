@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<title>CS602 Term Project</title>
+</head>
+<body>
+{{!-- <header> --}}
+	{{!-- <img src="/images/bu-logo.gif" alt="logo"> --}}
+{{!-- </header> --}}
+
+<h2>Shopping Cart Application</h2>
+
+  	{{#if user}}
+		<p>
+			<a href="/products">Products</a> |
+			<a href="/cart">Cart</a> | 
+			<a href="/orders">Orders</a> |
+			{{#if isAdmin}}
+				<a href="/users">Users</a> |
+			{{/if}}
+			<a href="/logout">Log out</a>
+   		</p>
+    
+   	{{else}}
+		<p>
+			<a href="/">Home</a>|
+			<a href="/login">Log in</a> |
+		</p>
+
+   	{{/if}}
+<hr/>
+	
+	{{{body}}}
+
+</body>
+</html>
+

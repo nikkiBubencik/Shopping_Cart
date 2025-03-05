@@ -1,0 +1,18 @@
+<b>All Users</b>
+<p></p>
+{{!-- <form method="POST" action="/orders">
+    <input type="radio" name="searchBy" id="name" value="Name" checked>
+    <label for="name">Name</label>
+    <input type="radio" name="searchBy" id="id" value="Id">
+    <label for="id">Id</label>
+    <br>
+    <input type="text" id="userSearch" name="userSearch">
+    <p></p>
+  	<input type="submit"/>
+</form> --}}
+
+<ul>
+  {{#each users}}
+    <li key="{{this._id}}"><a href="/user/{{this._id}}">{{this._id}}</a> - {{this.name}}</li>
+  {{/each}}
+</ul>

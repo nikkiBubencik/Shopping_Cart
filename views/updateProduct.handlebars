@@ -1,0 +1,15 @@
+<h2>Add New Product</h2>
+<hr>
+<form method="POST" action="/updateProduct/{{product._id}}">
+    <label for="_id">ID: </label>
+        <input type="text" id="_id" name="_id" value="{{product._id}}" readonly><br>
+    <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{product.name}}" required><br>
+    <label for="desc">Description: </label>
+        <input type="text" id="desc" name="desc" size="50" value="{{product.description}}" required><br>
+    <label for="price">Price: $</label>
+        <input type="text" id="price" name="price" value="{{product.price}}" required><br>
+    <label for="qty">Quantity: </label>
+        <input type="Number" id="qty" name="qty" value="{{product.qty}}" min="1" required><br>
+    <button type="Submit">Update</button>
+</form>

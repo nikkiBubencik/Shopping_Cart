@@ -1,0 +1,8 @@
+[
+    { "_id": "1", "name": "Alice",   "username": "alice",      
+          "password": "1234",   "role": "user" },
+    { "_id": "2", "name": "Bob",     "username": "bob",        
+          "password": "2345",    "role": "user" },
+    { "_id": "3", "name": "Charlie", "username": "charlie",    
+          "password": "3456",    "role": "admin"}  
+]

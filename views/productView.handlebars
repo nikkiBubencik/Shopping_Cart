@@ -1,0 +1,33 @@
+
+<b>Product ID: </b>
+{{this.query}}
+<p></p>
+<b>Name: {{product.name}}</b>
+<P></P>
+<p> {{product.description}}</p>
+<p></p>
+<p>Price: ${{product.price}}</p>
+
+<form method="POST" action="/addToCart">
+    <input type="text" name="_id" value="{{product._id}}" hidden>
+    <input type="text" name="name" value="{{product.name}}" hidden>
+    <input type="text" name="description" value="{{product.description}}" hidden>
+    <input type="number" name="price" value="{{product.price}}" hidden>
+    <input type="number" name="prevQty" value="{{product.qty}}" hidden>
+    <label for="qty">Quantity: </label>
+    <input type="number" id="qty" name="qty" value="1" min="0" max="{{product.qty}}">
+    <button type="Submit">Add to Cart</button>
+</form>
+
+
+{{#if isAdmin}}
+<p>Quantity in stock: {{product.qty}}</p>
+<p></p>
+    <form method="GET" action="/updateProduct/{{product._id}}">
+        <button type="Submit">Update</button>
+    </form>
+    <p></p>
+    <form method="POST" action="/delete/{{product._id}}">
+        <button type="Submit">Delete</button>
+    </form>
+{{/if}}

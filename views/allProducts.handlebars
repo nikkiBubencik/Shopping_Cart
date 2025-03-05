@@ -1,0 +1,38 @@
+<h1>Products</h1>
+
+<form method="POST" action="/products">
+    <input type="radio" name="searchBy" id="name" value="Name" checked>
+    <label for="name">Name</label>
+    <input type="radio" name="searchBy" id="description" value="Description">
+    <label for="description">Description</label>
+    <br>
+    <input type="text" id="productSearch" name="productSearch">
+    <fieldset>
+        <legend>Sort By</legend>
+        <input type="radio" id="priceDec" name="sortBy" value="priceDec">
+        <label for="priceDec">Price $$$ - $</label>
+        <input type="radio" id="priceInc" name="sortBy" value="priceInc">
+        <label for="priceInc">Price $ - $$$</label>
+    </fieldset>
+  	<button type="Submit">Search</button>
+</form>
+{{#if query}}
+    <p>Searchning by {{query.searchBy}} for "{{query.searchFor}}"</p>
+{{/if}}
+
+
+<ul>
+    {{#each products}}
+        <li key={{this._id}}>
+            <a href="/product/{{this._id}}">
+                <b>{{this.name}}</b>
+            </a>
+             - ${{this.price}} 
+        </li>
+    {{/each}}
+</ul>
+{{#if isAdmin}}
+    <form method="GET" action="/addProduct">
+        <button type="Submit">Add New Product</button>
+    </form> 
+{{/if}}

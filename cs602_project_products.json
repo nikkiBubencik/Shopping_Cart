@@ -1,0 +1,35 @@
+[{
+  "_id": "1",
+  "name": "Apples",
+  "description": "red apples",
+  "price": 0.7,
+  "qty": 50
+},
+{
+  "_id": "2",
+  "name": "Chocolate Chip Cookies",
+  "description": "Freshly baked Chocolate chip cookies",
+  "price": 5.84,
+  "qty": 15
+},
+{
+  "_id": "3",
+  "name": "Basil",
+  "description": "Fresh Basil",
+  "price": 1.98,
+  "qty": 5
+},
+{
+  "_id": "4",
+  "name": "1% Milk",
+  "description": "1 Gallon 1% milk",
+  "price": 3.36,
+  "qty": 12
+},
+{
+  "_id": "5",
+  "name": "Orange Juice",
+  "description": "No pulp Orange juice",
+  "price": 4.48,
+  "qty": 9
+}]

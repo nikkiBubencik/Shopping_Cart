@@ -1,0 +1,20 @@
+<b>Edit Order {{order._id}}</b>
+<p></p>
+<p>Customer# {{order.user}}</p>
+<ul>
+    {{#each order.products}}
+        <li key="{{this.prodduct._id}}"><a href="/product/{{this.product._id}}">{{this.product.name}}</a> - quantity: {{this.qty}}
+        <form method="POST" action="/updateOrderDel">
+            <input type="text" id="id" name="id" value="{{../order._id}}" hidden>
+            <input type="text" id="product" name="product" value="{{this.product._id}}" hidden>
+            <input type="number" id="qty" name="qty" value="{{this.qty}}" hidden>
+            <button type="Submit">Delete</button>
+        </form>
+        </li>
+    {{/each}}
+</ul>
+
+<form method="POST" action="/updateOrderAdd">
+<input type="text" id="id" name="id" value="{{order._id}}" hidden>
+    <button type="Submit">Add Item</button>
+</form>

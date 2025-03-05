@@ -1,0 +1,14 @@
+<b>Add Item to Order {{order}}</b>
+<p></p>
+<form method="POST" action="/updateOrderAddSubmit">
+<input type="text" id="id" name="id" value="{{order}}" hidden>
+<select name="product" id="product">
+{{#each products}}
+    <option value="{{this._id}}">{{this.name}} - ${{this.price}}</option>
+{{/each}}
+</select>
+
+<label for="qty">Qty to add:</label>
+<input type="number" id="qty" name="qty" required>
+<button type="Submit">Add Product</button>
+</form>

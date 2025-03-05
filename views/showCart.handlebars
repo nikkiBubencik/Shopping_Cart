@@ -1,0 +1,17 @@
+<b>{{user.name}}'s Cart</b>
+<p></p>
+
+{{#if products}} 
+    <ul>
+        {{#each products}} 
+            <li key="{{this.product._id}}">
+                {{this.product.name}} - ${{this.product.price}} - quantity: {{this.qty}}
+            </li>
+        {{/each}}
+    </ul>
+    <form method="POST" action="/placeOrder">
+        <button type="Submit">Place Order</button>
+    </form>
+{{else}} 
+    <p>Your Cart is Empty</p>
+{{/if}}
