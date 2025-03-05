@@ -8,6 +8,7 @@ This Application simulates a shopping cart for a merchant's website. Users can v
 - Mongoose/MongoDB
 - GraphQL
 - PassportJS
+- REST APIs
 
 # Data Models:
 Cart(user, Product, qty)
