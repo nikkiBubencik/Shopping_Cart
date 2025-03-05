@@ -18,7 +18,7 @@ Order(_id, user, [{Product, qty}])
 - Stores information on all orders, users can have multiple orders and many products in each order
 
 Product(_id, name, description, price, qty)
--stores the product’s information
+- stores the product’s information
 
 User(_id, name, username, password, role)
 - stores the user information
