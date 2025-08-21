@@ -4,6 +4,8 @@ import { ApolloServer } from '@apollo/server';
    // from '@apollo/server/standalone';
 import { expressMiddleware } from '@apollo/server/express4';
 import { Order, Product, Cart, User } from './models/index.js';
+import session from 'express-session';
+import MongoDBStore from 'connect-mongodb-session';
 
 const app = express();
 
@@ -23,15 +25,32 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 import cookieParser from 'cookie-parser';
-import expressSession from 'express-session';
+// import expressSession from 'express-session';
 
 // cookie-parser first
 app.use(cookieParser());
 // session 
-app.use(expressSession(
-	{ secret: 'cs602-secret',
-	  resave: false, 
-	  saveUninitialized: false }));
+const MongoDBStoreSession = MongoDBStore(session);
+
+const store = new MongoDBStoreSession({
+  uri: process.env.MONGO_URL,
+  collection: 'mySessions'
+});
+
+store.on('error', function(error) {
+  console.log('Session store error:', error);
+});
+
+app.use(session({
+  secret: 'cs602-secret',
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
+  },
+  store: store,
+  resave: false,
+  saveUninitialized: false
+}));
+
 
 let orderIdx = 2;
 import * as courseDB from './courseModule.js';
@@ -168,7 +187,7 @@ const typeDefs_Queries = `#graphql
 	
 		  return deletedProduct;
 		},
-		updateOrderDel: async (parent, args, ontext) => {
+		updateOrderDel: async (parent, args, context) => {
 			const addQtyBack = await Product.updateOne(
 				{_id: args.product},
 				{$inc: {qty: args.qty}}
@@ -324,7 +343,7 @@ app.use(
 // Routing
 import {router as routes} from 
     './routes/index.js';
-import { updateProduct } from './clienntCourseModules.js';
+import { updateProduct } from './clientCourseModules.js';
 
 app.use('/', routes);
 
@@ -333,7 +352,10 @@ app.use(function(req, res) {
 	res.status(404).render('404');
 });
 
-
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err);
+  res.status(500).send('Internal Server Error');
+}); 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
