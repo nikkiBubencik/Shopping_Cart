@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, gql }
 // const baseServerURL = "http://localhost:4000";
 
 export const client = new ApolloClient({
-  uri: '/graphql',
+  uri: 'https://shopping-cart-1-b14r.onrender.com/graphql',
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
