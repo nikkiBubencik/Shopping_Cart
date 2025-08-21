@@ -7,6 +7,20 @@ This Application simulates a shopping cart for a merchant's website. Users can v
 
 Deployed with Render: https://shopping-cart-1-b14r.onrender.com/
 
+###Fake User accounts:
+
+user: charlie
+password: 3456
+role: admin
+
+user: bob
+passwrod: 2345
+role: user
+
+user: alice
+password: 1234
+role: user
+
 ## Tech Stack:
 - NodeJS and ExpressJs
 - Mongoose/MongoDB
