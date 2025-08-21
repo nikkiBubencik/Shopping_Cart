@@ -1,5 +1,5 @@
 // File: credentials.js
 
-const dbURL = MONGO_URL;
+const dbURL = process.env.MONGO_URL;
 
 export  {dbURL};
