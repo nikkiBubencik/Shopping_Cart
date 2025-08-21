@@ -5,8 +5,8 @@ import { ApolloClient, InMemoryCache, gql }
 const PORT = process.env.PORT;
 
 export const client = new ApolloClient({
-  // uri: 'https://shopping-cart-1-b14r.onrender.com/graphql',
-  uri: `http://localhost:${PORT}/graphql`,
+  uri: 'https://shopping-cart-1-b14r.onrender.com/graphql',
+  // uri: `http://localhost:${PORT}/graphql`,
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
