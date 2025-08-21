@@ -12,6 +12,7 @@
   "description": "",
   "type": "module",
   "dependencies": {
+    "connect-mongodb-session": "^1.5.0",
     "@apollo/client": "^3.13.1",
     "@apollo/server": "^4.11.3",
     "apollo-server-express": "^3.13.0",
