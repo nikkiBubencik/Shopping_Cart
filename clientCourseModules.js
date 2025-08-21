@@ -6,7 +6,7 @@ const PORT = process.env.PORT;
 
 export const client = new ApolloClient({
   // uri: 'https://shopping-cart-1-b14r.onrender.com/graphql',
-  url: `http://localhost:${PORT}`,
+  url: `http://localhost:${PORT}/graphql`,
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
