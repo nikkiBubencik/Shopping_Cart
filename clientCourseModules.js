@@ -1,10 +1,10 @@
 import { ApolloClient, InMemoryCache, gql } 
   from "@apollo/client/core/core.cjs";
 
-const baseServerURL = "http://localhost:4000";
+// const baseServerURL = "http://localhost:4000";
 
 export const client = new ApolloClient({
-  uri: `${baseServerURL}`,
+  uri: '/graphql',
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
