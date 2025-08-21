@@ -1,5 +1,5 @@
 // File: credentials.js
 
-const dbURL = 'mongodb://localhost:27017/cs602_project';
+const dbURL = MONGO_URL;
 
 export  {dbURL};
