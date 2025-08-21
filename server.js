@@ -1,8 +1,8 @@
 import express from 'express';
 import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } 
+// import { startStandaloneServer } 
    from '@apollo/server/standalone';
-
+import { expressMiddleware } from '@apollo/server/express4';
 import { Order, Product, Cart, User } from './models/index.js';
 
 const app = express();
@@ -310,6 +310,17 @@ const typeDefs_Queries = `#graphql
 	{typeDefs: [typeDefs_Queries], 
 	 resolvers: [resolvers_Queries]});
 
+await server.start();
+app.use(
+  '/graphql',
+  expressMiddleware(server, {
+    context: async ({ req }) => ({
+      // You can add authenticated user/session/cookies if needed here
+      user: req.session?.user || null
+    }),
+  })
+);
+
 // Routing
 import {router as routes} from 
     './routes/index.js';
@@ -319,14 +330,11 @@ app.use('/', routes);
 
 
 app.use(function(req, res) {
-	res.status(404);
-	res.render('404');
+	res.status(404).render('404');
 });
 
-const { url } = await startStandaloneServer(server, {
-	listen: { port: 4000 },
-  });
 
-app.listen(3000, function(){
-  console.log('http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
