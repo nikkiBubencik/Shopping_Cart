@@ -2,7 +2,7 @@ import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 
 import { validateUser } from '../dbUsers.js';
-import * as courseDB from '../clienntCourseModules.js';
+import * as courseDB from '../clientCourseModules.js';
 
 passport.use(
   new LocalStrategy(
