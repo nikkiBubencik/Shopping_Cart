@@ -2,9 +2,11 @@ import { ApolloClient, InMemoryCache, gql }
   from "@apollo/client/core/core.cjs";
 
 // const baseServerURL = "http://localhost:4000";
+const PORT = process.env.PORT;
 
 export const client = new ApolloClient({
-  uri: 'https://shopping-cart-1-b14r.onrender.com/graphql',
+  // uri: 'https://shopping-cart-1-b14r.onrender.com/graphql',
+  url: `http://localhost:${PORT}`,
   cache: new InMemoryCache(),
   defaultOptions: {
     query: {
