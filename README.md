@@ -7,7 +7,7 @@ This Application simulates a shopping cart for a merchant's website. Users can v
 
 Deployed with Render: https://shopping-cart-1-b14r.onrender.com/
 
-###Fake User accounts:
+### Fake User accounts:
 
 user: charlie
 password: 3456
