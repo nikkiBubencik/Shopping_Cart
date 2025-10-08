@@ -17,10 +17,6 @@ user: bob
 passwrod: 2345
 role: user
 
-user: alice
-password: 1234
-role: user
-
 ## Tech Stack:
 - NodeJS and ExpressJs
 - Mongoose/MongoDB
